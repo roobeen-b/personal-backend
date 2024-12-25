@@ -7,6 +7,7 @@ const cors = require("cors");
 
 const authRouter = require("./routes/auth.route");
 const projectRouter = require("./routes/project.route");
+const skillRouter = require("./routes/skill.route");
 
 mongoose
   .connect(`${process.env.MONGO_DB_URL}`)
@@ -37,6 +38,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRouter);
 app.use("/api/project", projectRouter);
+app.use("/api/skill", skillRouter);
 
 app.listen(PORT, () => {
   console.log("Server running at port: ", PORT);
